@@ -37,23 +37,23 @@ Finished code for this project is in `session-auth-api` (Rails) and
 If you want to code along, create a new Rails app:
 
 ```sh
-$ rails new project-name-backend --api --database=postgresql
+rails new project-name-backend --api --database=postgresql
 ```
 
 If you'd rather use the pre-built app, `cd` into `session-auth-api` and run:
 
 ```sh
-$ bundle
-$ rails db:create db:migrate
-$ rails s
+bundle
+rails db:create db:migrate
+rails s
 ```
 
 There's also a pre-build React client app - to get that running, `cd` into
 `session-auth-client` and run:
 
 ```sh
-$ npm install
-$ npm start
+npm install
+npm start
 ```
 
 ## Rails
@@ -68,8 +68,8 @@ First, uncomment the `rack-cors` and `bcrypt` gems.
 Then, run:
 
 ```sh
-$ bundle add active_model_serializers
-$ bundle install
+bundle add active_model_serializers
+bundle install
 ```
 
 ### Config
@@ -131,7 +131,7 @@ With that configuration done, let's make a User model and a few resources to
 test our session auth:
 
 ```sh
-$ rails g resource User username password_digest
+rails g resource User username password_digest
 ```
 
 Let's make sure our User class is set up to use BCrypt and has some validations:
@@ -282,7 +282,7 @@ fetch("http://localhost:3000/api/v1/signup", {
 
 In the network tab, the response should look something like this:
 
-![signup response](screenshots/signup.png?raw=true)
+![signup response](https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-auth-session/master/screenshots/signup.png)
 
 If the Access-Control headers look different, check your CORS config file on the
 server. Also, make sure you have `credentials: "include"` in your fetch options.
@@ -298,7 +298,7 @@ fetch("http://localhost:3000/api/v1/autologin/", {
 
 In the network tab, the request should look something like this:
 
-![auto-login response](screenshots/autologin.png?raw=true)
+![auto-login response](https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-auth-session/master/screenshots/autologin.png)
 
 Check that the cookie is being sent as part of the request headers; if not,
 double-check that **all** your fetch requests have `credentials: "include"`.
@@ -326,10 +326,11 @@ Resources:
 
 ### Google Setup
 
-Follow the steps to create your authorization credentials (just up to step 4
-under "Create authorization credentials" - skip the sections below that):
+Follow the steps to [create your authorization credentials][google setup] (just
+up to step 4 under "Create authorization credentials" - skip the sections below
+that).
 
-https://developers.google.com/identity/sign-in/web/sign-in
+[google setup]: https://developers.google.com/identity/sign-in/web/sign-in
 
 Take note of the **client ID** - you'll need that later for React and Rails.
 
